@@ -1,0 +1,90 @@
+*{padding: 0; margin:0;}
+
+#root {
+  width: 100vw; height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+
+  & > p {
+    position: absolute;
+    z-index: 3;
+    font-size: 1.5rem;
+    top: 47vh;
+    left: 37vw;
+    color: #fff;
+  }
+  
+  // #box
+  & > div:nth-child(2) {
+    width: 15vw; height: 70vh;
+    display: flex;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    left: 30vw;
+
+
+    // 점 세 개 들어갈 박스
+    & > div:nth-child(1){
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      flex-direction: row;
+      width: 60px; height: 100%;
+
+      & > div {
+        width: 10px; height: 10px;
+        border-radius: 10px;
+        margin-left: 0.5vw;
+        background-color: #c4c4c4;
+      }
+    }
+
+    &>div:nth-child(2){
+      width: 30vh; height: 30vh;
+      // background-color: black;
+      position: absolute;
+      top: 23vh;
+      
+      // 다이아몬드모양
+      &>div:nth-child(1){
+        position: absolute;
+        z-index: 2;
+        width: 250px; height: 250px;
+        border-radius: 90px;
+        left: 5vw;
+        background-color: #c4c4c4;
+        transform: rotate(30deg);
+      }
+      // 다이아몬드모양 블러
+      &>div:nth-child(2){
+        position: absolute;
+        z-index: 1;
+        width: 250px; height: 250px;
+        border-radius: 90px;
+        left: 12vw;
+        bottom: 7vh;
+        // rotate: 30deg;
+        background-color: #c4c4c4;
+        filter: blur(20px);
+        transform: rotate(30deg);
+      }
+
+    }
+
+  }
+
+  & > div:last-child {
+    width: 60vh; height: 60vh;
+    border-radius: 40vh;
+    border: 1px solid #999;
+    position: absolute;
+    z-index: 0;
+    right: 30vw;
+  }
+
+
+}
