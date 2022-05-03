@@ -1,0 +1,85 @@
+*{margin: 0; padding: 0;}
+
+#root {
+  
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  //겹친 박스 (위)
+  & > div:first-child {
+
+    width: 100vw;
+    height: 48.5vh;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+  
+  //겹친 박스(아래)
+  & > div:nth-child(2) {
+  
+    width: 100vw;
+    height: 48vh;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  //텍스트 영역
+  & > div:last-child{
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 4rem;
+    font-weight: bold;
+    
+    & > div{
+      margin-top: 1vh;
+      height: 9vh;
+    }
+
+    //WH'A'T
+    & > div:nth-child(3){
+      margin-top: 2.6vh;
+      transform: rotate(180deg);
+    }
+
+    //O두개 겹친것
+    & > div:nth-child(10){
+      height: 12vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      
+      & > p:nth-child(1){
+        position: absolute;
+        top: 3vh;
+      }
+      & > p:nth-child(2){
+        position: relative;
+      }
+    }
+
+    //Y'O'U
+    & > div:nth-child(11){
+      margin-top: 2.6vh;
+      transform: rotate(180deg);
+    }
+    //W'A'NT
+    & > div:nth-child(13){
+      margin-top: 2.6vh;
+      transform: rotate(180deg);
+    }
+
+
+  }
+
+}

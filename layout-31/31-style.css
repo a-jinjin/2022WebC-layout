@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#root > div:first-child {
+  width: 100vw;
+  height: 48.5vh;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+#root > div:nth-child(2) {
+  width: 100vw;
+  height: 48vh;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+}
+#root > div:last-child {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 4rem;
+  font-weight: bold;
+}
+#root > div:last-child > div {
+  margin-top: 1vh;
+  height: 9vh;
+}
+#root > div:last-child > div:nth-child(3) {
+  margin-top: 2.6vh;
+  transform: rotate(180deg);
+}
+#root > div:last-child > div:nth-child(10) {
+  height: 12vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+#root > div:last-child > div:nth-child(10) > p:nth-child(1) {
+  position: absolute;
+  top: 3vh;
+}
+#root > div:last-child > div:nth-child(10) > p:nth-child(2) {
+  position: relative;
+}
+#root > div:last-child > div:nth-child(11) {
+  margin-top: 2.6vh;
+  transform: rotate(180deg);
+}
+#root > div:last-child > div:nth-child(13) {
+  margin-top: 2.6vh;
+  transform: rotate(180deg);
+}/*# sourceMappingURL=31-style.css.map */
