@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./32-style.css">
+</head>
+<body>
+  <div id="root">
+    <!-- 맨 위 글씨/직사각형 -->
+    <div>
+      <p id="titleText">BIGFONT</p>
+      <div id="roundBox"></div>
+      <div></div>
+    </div>
+    <!-- 정사각박스 6개 들어갈 박스 -->
+    <div id="squereSix"> </div>
+    <!-- 텍스트 들어갈 박스 세 개 -->
+    <div>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas architecto perspiciatis ex, obcaecati dolore voluptates ad culpa soluta omnis laborum ullam sed repudiandae alias, quae odio magnam, esse adipisci ipsa.</p></div>
+    <div>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas architecto perspiciatis ex, obcaecati dolore voluptates ad culpa soluta omnis laborum ullam sed repudiandae alias, quae odio magnam, esse adipisci ipsa.</p></div>
+    <div>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas architecto perspiciatis ex, obcaecati dolore voluptates ad culpa soluta omnis laborum ullam sed repudiandae alias, quae odio magnam, esse adipisci ipsa.</p></div>
+  </div>
+
+
+  <script>
+
+    const squereSix = document.getElementById('squereSix');
+
+    // squerSix에 div를 자식으로 추가 (6개)
+    for(let i = 0; i<6; i++){
+      let miniBox = document.createElement('div');
+      squereSix.appendChild(miniBox);
+      // console.dir(squereSix);
+      // ==> 제대로 잘 들어와있는지 확인
+      // 자식으로 들어온 div를 스타일링
+      squereSix.children[i].style.width = '5vw';
+      squereSix.children[i].style.height = '5vw';
+      squereSix.children[i].style.backgroundColor = 'gray';
+      squereSix.children[i].style.marginBottom = '1vh';
+    };
+
+
+    // 제목을 클릭하면 배경의 직사각형의 색상이 바뀌도록 하고싶다.
+    const titleText = document.getElementById('titleText');
+    const roundBox = document.getElementById('roundBox');
+
+    // 클릭 이벤트를 제어하기 위한 변수 i
+    let i = 0;
+    
+    // titleText에 클릭이벤트 추가
+    titleText.addEventListener('click', function(){
+      
+      if(i === 0){
+        roundBox.style.backgroundColor = 'darkblue';
+        i = 1;
+      }else{
+        roundBox.style.backgroundColor = '#333';
+        i = 0;
+      };
+    });
+
+  </script>
+</body>
+</html>

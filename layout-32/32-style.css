@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: gray;
+}
+#root > div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+  position: absolute;
+}
+#root > div:first-child > p:first-child {
+  font-size: 5rem;
+  font-family: "Monoton", cursive;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  bottom: 50%;
+  z-index: 2;
+}
+#root > div:first-child > div:nth-child(2) {
+  width: 45vh;
+  height: 60vh;
+  background-color: #333;
+  border-radius: 25vw 20vw 15vw 25vw;
+  transform: rotate(130deg);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+#root > div:first-child > div:nth-child(3) {
+  width: 45vh;
+  height: 60vh;
+  background-color: #333;
+  border-radius: 25vw 20vw 15vw 25vw;
+  transform: rotate(130deg);
+  filter: blur(10px);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+#root > div:nth-child(2) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 7vw;
+  height: 95vh;
+  background-color: #ccc;
+  padding-top: 5vh;
+}
+#root > div:nth-child(3) {
+  width: 31vw;
+  height: 100vh;
+  background-color: #999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+#root > div:nth-child(3) > p {
+  width: 90%;
+  text-align: justify;
+  margin-top: 5vh;
+}
+#root > div:nth-child(4) {
+  width: 31vw;
+  height: 100vh;
+  background-color: #777;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+#root > div:nth-child(4) > p {
+  width: 90%;
+  text-align: justify;
+  margin-bottom: 5vh;
+}
+#root > div:nth-child(5) {
+  width: 31vw;
+  height: 100vh;
+  background-color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#root > div:nth-child(5) > p {
+  width: 90%;
+  text-align: justify;
+}/*# sourceMappingURL=32-style.css.map */
