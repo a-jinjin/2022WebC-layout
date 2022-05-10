@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{margin: 0; padding: 0;}
+    #root {
+      width: 100vw; height: 100vh;
+      /* background-color: #ccc; */
+      display: flex;
+      justify-content: center;
+    }
+    
+    #root > ul {
+      width: 500px; height: 300px;
+      margin-top: 20vh;
+    }
+
+    .menu-title {
+      height: 70px;
+      list-style: none;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #555;
+      margin-bottom: 2vh;
+      color: #fff;
+    }
+
+    .menu-sub {
+      height: 40px;
+      list-style: none;
+      background-color: #ccc;
+      margin-bottom: 1vh;
+      display: none;
+    }
+
+    .open {
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="root">
+    <ul>
+      <li class="menu-title">menu-1</li>
+      <li class="menu-sub">menu-item-1</li>
+      <li class="menu-sub">menu-item-2</li>
+      <li class="menu-sub">menu-item-3</li>
+      <li class="menu-sub">menu-item-4</li>
+    </ul>
+
+
+    <script>
+      const titleMenu = document.getElementsByClassName('menu-title');
+      // console.dir(titleMenu[0]);
+      // ==> titleMenu[0] / className으로 가져오면 배열로 가져오게된다.
+      const subMenu = document.getElementsByClassName('menu-sub');
+      // console.dir(subMenu.length); ==> for문을 사용할 수 있지 않나?
+
+      titleMenu[0].addEventListener('click', function(){
+        // console.log('hello~'); ==> 클릭이벤트가 잘 작동한다.
+
+        if(subMenu[0].classList.contains('open')){
+        // subMenu가 'open'이라는 클래스를 가지고있다면
+        // console.log("클래스 open 을 가지고있습니다.");
+          
+          for(i = 0; i < subMenu.length; i++){
+            subMenu[i].classList.remove('open');
+          };
+
+        }else{
+        // subMenu가 'open'이라는 클래스를 가지고있지 않다면
+        // console.log('클래스 open 을 가지고있지 않습니다.');
+          
+          // subMenu[0].classList.add('open');
+          //==> 하나만 적용된다. 배열이니까 for로 반복하면 네 개 모두 열 수 있지 않을까?
+
+          for(i = 0; i < subMenu.length; i++){
+            subMenu[i].classList.add('open');
+            // ==> 정상작동함!
+
+          };
+
+        }
+      });
+
+    </script>
+  </div>
+</body>
+</html>
