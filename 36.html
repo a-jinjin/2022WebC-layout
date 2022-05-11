@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{margin: 0; height: 0;}
+
+    #root {
+      width: 100vw; height: 100vh;
+      /* background-color: #ccc; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #root > div {
+      width: 70vw; height: 25vh;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    #root > div > div:nth-child(1) {
+      width: 35vw; height: 25vh;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+    }
+    
+    #root > div > div:nth-child(1) > p {
+      height: 3vh;
+      font-size: 100px;
+      font-weight: bold;
+      text-align: right;
+      line-height: 80px;
+      mix-blend-mode: multiply;
+      /* text-decoration: underline; */
+    }
+
+    #root > div > p:nth-child(2) {
+      width: 35vw; height: 3vh;
+      font-size: 12px;
+      color: #ccc;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div id="root">
+    <div>
+      <div id="text-box">
+        <p>function</p>
+        <p>variable</p>
+        <p>index</p>
+        <p>constant</p>
+        <p>object</p>
+        <p>array</p>
+      </div>
+      <p>The greatest glory in living lies not in never falling, but in rising every time we fall.</p>
+    </div>
+  </div>
+
+  <script>
+    const root = document.getElementById('root');
+    const textBox = document.getElementById('text-box');
+    const textP = textBox.children;
+
+    let colorArr = [
+    'rgba(0, 171, 238, 0.486)',
+    'rgba(0, 238, 238, 0.486)',
+    'rgba(109, 255, 243, 0.486)',
+    'rgba(75, 87, 255, 0.486)',
+    'rgba(62, 0, 231, 0.486)',
+    'rgba(192, 37, 231, 0.486)'
+    ];
+
+    console.dir(textP[1]);
+
+    for(let i = 0; i < textP.length; i++){
+      textP[i].style.color = colorArr[i];
+      
+      textP[i].addEventListener('mouseover', function(){
+        console.dir(textP[i])
+        textP[i].style.textDecoration = 'underline';
+        textP[i].style.color = 'rgb(200, 200, 200)';
+      });
+
+      textP[i].addEventListener('mouseout', function(){
+        textP[i].style.textDecoration = 'none';
+        textP[i].style.color = colorArr[i];
+      });
+
+    };
+
+
+    
+  </script>
+</body>
+</html>
