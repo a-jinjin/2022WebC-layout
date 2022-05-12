@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style-37.css">
+
+  <style>
+    *{margin: 0; padding: 0;}
+  </style>
+
+</head>
+
+
+<body>
+  <div id="root">
+    <!-- div 두 개 담을 박스 -->
+    <div id="box">
+      <!-- 컬러박스 -->
+      <div id="color-box">
+        <div>
+          <p>BORDERLINE<br>DESIGN</p>
+        </div>
+        <div><p>gooood?</p></div>
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, quos provident? Nostrum consectetur qui repellat tempora voluptas molestiae asperiores vero tempore quidem ipsam ab adipisci temporibus, inventore optio illum consequuntur?</p>
+        </div>
+      </div>
+      <!-- 흑백박스 -->
+      <div id="gray-box">
+        <p>MODERN<br>DESIGN</p>
+        <p>Loremipsum</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam magni assumenda est debitis doloremque atque ex, aliquid ea, ratione esse commodi ducimus eos optio? Architecto voluptates obcaecati provident incidunt quidem quod deleniti eum ut odio magnam exercitationem aperiam, laboriosam, dignissimos neque nemo dolores. Sint assumenda, molestiae veritatis deleniti itaque doloremque quod eveniet</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 간단한 제어 해보기 -->
+  <script>
+    const bigBox = document.getElementById('box');
+    const colorBox = document.getElementById('color-box');
+    const grayBox = document.getElementById('gray-box');
+
+    // 스위치처럼 사용할 value
+    let value = true;
+
+    // bigBox에 이벤트 추가
+    // ==> 클릭하면 맨 앞의 요소가 바뀌는 이벤트
+    bigBox.addEventListener('click', function(){
+      if(value === true){
+        colorBox.style.zIndex = 0;
+        colorBox.style.filter = 'blur(3px)';
+        colorBox.style.boxShadow = 'none';
+        grayBox.style.zIndex = 1;
+        grayBox.style.filter = 'blur(0)';
+        grayBox.style.boxShadow = '1vh 1vh 1vh gray';
+
+        value = false;
+      }else{
+        colorBox.style.zIndex = 1;
+        colorBox.style.filter = 'blur(0)';
+        colorBox.style.boxShadow = '1vh 1vh 1vh rgba(190, 125, 185, 0.699)';
+        grayBox.style.zIndex = 0;
+        grayBox.style.filter = 'blur(3px)';
+        grayBox.style.boxShadow = '';
+
+        value = true;
+      }
+
+    });
+
+  </script>
+</body>
+</html>
