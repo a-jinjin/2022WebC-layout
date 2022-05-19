@@ -1,88 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/d08da597d2.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-  <style>
-    *{margin: 0; padding: 0;}
+      #box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 50px 0 50px;
+      }
 
-    #root{
-      width: 100vw; height: 100vh;
-      background-color: #ccc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      #box > div {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+        margin: 10px;
+        font-size: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    #root > div {
-      width: 50vw; height: 10vh;
-      border: 1px solid #fff;
-      margin: 0 2vw 0 2vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+      #box > div:first-child {
+        width: 150px;
+        height: 150px;
+        border: 5px dotted orange;
+        font-size: 72px;
+        color: orange;
+      }
 
-    .btn-circle{
-      width: 7vw; height: 7vw;
-      border-radius: 4vw;
-      border: none;
-      background-color: #fff;
-    }
+      .button {
+        width: 80px;
+        height: 80px;
+        background-color: #ccc;
+        border-radius: 40px;
+        border: none;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <button id="left-button" class="button">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <div id="box">
+        <div><i class="fa-solid fa-ghost"></i></div>
+        <div><i class="fa-solid fa-bomb"></i></div>
+        <div><i class="fa-solid fa-meteor"></i></div>
+        <div><i class="fa-solid fa-jedi"></i></div>
+        <div><i class="fa-solid fa-hand-spock"></i></div>
+      </div>
+      <button id="right-button" class="button">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
 
-  </style>
-</head>
+    <script>
+      const root = document.getElementById("root");
+      const buttonLeft = document.getElementById("left-button");
+      const buttonRight = document.getElementById("right-button");
+      const box = document.getElementById("box");
+      const numBox = box.children;
 
+      buttonLeft.addEventListener("click", function () {
+        let numLast = numBox[0].cloneNode(true);
+        box.appendChild(numLast);
+        numBox[0].remove();
+      });
 
-<body>
-  <div id="root">
-    <button id="left-btn" class="btn-circle"></button>
-    <div id="box"></div>
-    <button id="right-btn" class="btn-circle"></button>
-  </div>
-
-  <script>
-
-    const leftBtn = document.getElementById('left-btn');
-    const box = document.getElementById('box');
-
-    for(let i = 0; i < 5; i++){
-      const numbers = document.createElement('div');
-      numbers.style.width = 6+'vw';
-      numbers.style.height = 6+'vw';
-      numbers.style.backgroundColor = 'gray';
-      numbers.style.borderRadius = 3+'vw';
-      numbers.style.textAlign = 'center';
-      numbers.textContent = i+1;
-      box.appendChild(numbers);
-    }
-
-    const numberBtn = box.children;
-    console.log(numberBtn); //html collection
-    console.log(Array.isArray(numberBtn)) // false =>유사배열
-
-    //from()으로 복사, 배열로 만들어준다.
-    const test = Array.from(numberBtn);
-
-    test.push(numberBtn[0]);
-    // console.log(test);
-    test.shift(numberBtn[0]);
-    console.log(test);
-    // => 잘 됨
-    // => 이걸 다시 numberBtn에 넣어줘야되나?
-    
-    // const numberMap = numberBtn.map(function(value){
-    //   value = test[value];
-    // });
-
-    // forEach
-    // const numberEach = numberBtn.forEach((value, index)=>{
-    //   console.log(value+index)
-    // });
-
-  </script>
-</body>
+      buttonRight.addEventListener("click", function () {
+        let numFirst = numBox[numBox.length - 1].cloneNode(true);
+        box.prepend(numFirst);
+        numBox[numBox.length - 1].remove();
+      });
+    </script>
+  </body>
 </html>
