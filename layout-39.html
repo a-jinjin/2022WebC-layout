@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {margin : 0; padding: 0;}
+
+    #root {
+      width: 100vw; height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #circle-box {
+      width: 800px; height: 300px;
+      /* border: 1px solid black; */
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    #click-btn {
+      width: 100px; height: 45px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      background-color: #555;
+      color: #fff;
+    }
+
+    .circle {
+      width: 70px; height: 70px;
+      background-color: #ccc;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+  </style>
+
+</head>
+
+<body>
+  
+  <div id="root">
+    <div id="circle-box">
+      <div class="circle" data-circlenumber="1">1</div>
+      <div class="circle" data-circlenumber="2">2</div>
+      <div class="circle" data-circlenumber="3">3</div>
+      <div class="circle" data-circlenumber="4">4</div>
+      <div class="circle" data-circlenumber="5">5</div>
+      <div class="circle" data-circlenumber="6">6</div>
+      <div class="circle" data-circlenumber="7">7</div>
+      <div class="circle" data-circlenumber="8">8</div>
+      <div class="circle" data-circlenumber="9">9</div>
+    </div>
+    <button id="click-btn">click</button>
+  </div>
+
+
+  <script>
+
+    const clickBtn = document.querySelector('#click-btn');
+    const circles = document.querySelectorAll('.circle');
+
+    // console.log(circles[0].dataset.circlenumber)
+    // 데이터셋 조회
+
+
+    // *** keyframe
+    let circleKeyDown = [
+    { transform: 'translateY(0px)' },
+    { transform: 'translateY(100px)' },
+    { transform: 'translateY(-10px)' },
+    { transform: 'translateY(0px)' }
+    ];
+
+    let circleKeyUp = [
+    { transform: 'translateY(0px)' },
+    { transform: 'translateY(-100px)' },
+    { transform: 'translateY(10px)' },
+    { transform: 'translateY(0px)' }
+    ];
+
+
+    // *** duration
+    let circleDuration = {
+      duration: 1000,
+      iterations: 1,
+    }
+
+
+    let i = 0;
+    clickBtn.addEventListener('click', function(){
+      
+      if(circles[i].dataset.circlenumber%2 === 1){
+      // dataset-circlenumber가 홀수라면 위로
+
+        circles[i].animate(circleKeyUp, circleDuration);
+        i++;
+  
+      }else{
+      // dataset-circlenumber가 짝수라면 아래로
+
+        circles[i].animate(circleKeyDown, circleDuration);
+        i++;
+
+      };
+
+      // 끝까지 갔으면 다시 0으로 만들어 반복할 수 있도록
+      if (i === circles.length){
+        i = 0;
+      };
+
+    });
+
+
+
+
+  </script>
+
+
+</body>
+</html>
