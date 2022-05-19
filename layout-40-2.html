@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{margin: 0; padding: 0;}
+
+    #root{
+      width: 100vw; height: 100vh;
+      background-color: #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #root > div {
+      width: 50vw; height: 10vh;
+      /* border: 1px solid #fff; */
+      margin: 0 2vw 0 2vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-circle{
+      width: 7vw; height: 7vw;
+      border-radius: 4vw;
+      border: none;
+      background-color: #fff;
+    }
+
+    .num{
+      width: 6vw; height: 6vw;
+      border-radius: 4vw;
+      background-color: #888;
+    }
+
+  </style>
+</head>
+
+
+<body>
+  <div id="root">
+    <button id="left-btn" class="btn-circle"></button>
+    <div id="box">
+      <div class="num">1</div>
+      <div class="num">2</div>
+      <div class="num">3</div>
+      <div class="num">4</div>
+      <div class="num">5</div>
+    </div>
+    <button id="right-btn" class="btn-circle"></button>
+  </div>
+
+  <script>
+
+    const leftBtn = document.getElementById('left-btn');
+    const box = document.getElementById('box');
+    const num = document.querySelectorAll('.num');
+    
+    console.log(num); //nodeList
+
+
+    // leftBtn.addEventListener('click', function(){
+
+    // 유사배열인 num을 배열로 복사 => from()
+    const numMap = Array.from(num);
+    console.log(numMap);
+    
+    console.log(numMap[0]); // 첫번째 값 1
+    console.log(numMap[numMap.length-1]); // 마지막 값 5
+
+    // numMap의 마지막에 numMap의 0번값을 추가
+    numMap.push(numMap[0]);
+    console.log(numMap[0]); // 첫번째 값 1
+    console.log(numMap[numMap.length-1]); // 마지막 값 1
+
+    // numMap의 첫번째 값을 삭제
+    numMap.shift();
+    console.log(numMap[0]); // 첫번째 값 2
+    console.log(numMap[1]); // 두번째 값 3
+    console.log(numMap[2]); // 세번째 값 4
+    console.log(numMap[3]); // 네번째 값 5
+    console.log(numMap[numMap.length-1]); // 마지막 값 1
+
+    // ===> 잘 작동함
+    // 이제 이걸 다시 num에 대입해줘야됨
+    
+
+
+    // });
+    
+    console.log(Array.isArray(num));
+    console.log(Array.isArray(numMap));
+
+
+  </script>
+</body>
+</html>
